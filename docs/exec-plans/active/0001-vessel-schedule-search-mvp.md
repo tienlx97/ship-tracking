@@ -57,7 +57,6 @@ packages/mocks
 ```bash
 pnpm install
 pnpm lint
-pnpm typecheck
 pnpm build
 pnpm dev
 ```
