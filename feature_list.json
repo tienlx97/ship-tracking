@@ -1,0 +1,51 @@
+{
+  "project": "contract builder",
+  "last_updated": "2026-05-30",
+  "rules": {
+    "single_active_feature": true,
+    "passing_requires_evidence": true,
+    "do_not_skip_verification": true
+  },
+  "status_legend": {
+    "not_started": "Work has not begun.",
+    "in_progress": "The feature is the current active task.",
+    "blocked": "Work cannot continue until a documented blocker is resolved.",
+    "passing": "Required verification has passed and evidence is recorded."
+  },
+  "features": [
+    {
+      "id": "0001",
+      "priority": 1,
+      "area": "structure",
+      "title": "Create project structure",
+      "user_visible_behavior": "The structure of the project is defined with necessary folders and files.",
+      "status": "not_started",
+      "verification": [
+       "Verify that the project structure includes folders for components, services, and tests.",
+        "Check that the necessary configuration files (e.g., package.json, tsconfig.json) are present."
+      ],
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "0002",
+      "priority": 2,
+      "area": "product",
+      "title": "Define Contract Builder MVP product spec",
+      "user_visible_behavior": "Internal logistics/export staff can understand the MVP workflow and required data for generating CIF sale contracts from structured input.",
+      "status": "passing",
+      "verification": [
+        "Verify docs/PRODUCT.md states that the MVP generates sale contracts only.",
+        "Verify docs/PRODUCT.md lists all required contract, buyer, seller, commercial, bank, and shipping fields.",
+        "Verify payment request, proforma invoice, and PDF export are marked as future scope.",
+        "Verify CIF.docx/BIDV CIF is documented as the first supported template."
+      ],
+      "evidence": [
+        "docs/PRODUCT.md updated with Contract Builder MVP product specification on 2026-05-30.",
+        "Manual documentation review completed against the user-approved plan.",
+        "bash init.sh attempted but blocked because WSL has no installed Linux distribution on this machine."
+      ],
+      "notes": "Documentation-only feature. Implementation work should not start until the standard startup path is made runnable or an equivalent verified Windows path is documented."
+    }
+  ]
+}
