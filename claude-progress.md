@@ -12,15 +12,15 @@
 
 ### Session 001
 
-- Date:
-- Goal:
-- Completed:
-- Verification run:
-- Evidence captured:
-- Commits:
-- Files or artifacts updated:
-- Known risk or unresolved issue:
-- Next best step:
+- Date: Unknown
+- Goal: Initial placeholder from repository setup.
+- Completed: No verified implementation details were recorded for this session.
+- Verification run: Not recorded.
+- Evidence captured: Not recorded.
+- Commits: Not recorded.
+- Files or artifacts updated: Not recorded.
+- Known risk or unresolved issue: Historical placeholder only; use later sessions for verified state.
+- Next best step: Continue from the latest dated session entry.
 
 ### Session 002
 
@@ -56,4 +56,16 @@
 - Commits: `docs: update quality snapshot`.
 - Files or artifacts updated: `quality-document.md`, `claude-progress.md`.
 - Known risk or unresolved issue: `docs/RELIABILITY.md` still contains stale Electron/document-indexing concepts and should be realigned before reliability implementation.
+- Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
+
+### Session 005
+
+- Date: 2026-05-30
+- Goal: Close the current session with a clear handoff state.
+- Completed: Confirmed the latest repo state, clarified the historical `Session 001` placeholder, and recorded the current close-session handoff.
+- Verification run: `bash init.sh` attempted and failed with WSL no installed distribution. Passed: `powershell -ExecutionPolicy Bypass -File .\init.ps1`.
+- Evidence captured: `init.ps1` completed dependency check and `pnpm test`; `tests/structure.test.ts` passed 3 tests.
+- Commits: `docs: record session close handoff`.
+- Files or artifacts updated: `claude-progress.md`.
+- Known risk or unresolved issue: `bash init.sh` remains blocked by missing WSL distro. Existing unrelated working-tree changes are present in `skills-lock.json`, `.agents/skills/agent-browser/`, and `.agents/skills/vercel-react-best-practices/`.
 - Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
