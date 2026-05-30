@@ -4,7 +4,7 @@
 
 - Repository root: `ship tracking`
 - Standard startup path: `pnpm dev`
-- Standard verification path: `pnpm test`
+- Standard verification path: `pnpm test` (Jest through Next.js `next/jest`)
 - Current highest-priority unfinished feature: none; `0001 Create project structure` and `0002 Define Contract Builder MVP product spec` are passing.
 - Current blocker: `bash init.sh` cannot run on this machine because WSL has no installed Linux distribution. Use verified Windows equivalent `powershell -ExecutionPolicy Bypass -File .\init.ps1` on this machine.
 
@@ -81,3 +81,15 @@
 - Files or artifacts updated: `evaluator-rubric.md`, `claude-progress.md`.
 - Known risk or unresolved issue: `docs/RELIABILITY.md` still contains stale Electron/document-indexing concepts. Existing unrelated working-tree changes are present in `skills-lock.json`, `.agents/skills/agent-browser/`, and `.agents/skills/vercel-react-best-practices/`.
 - Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
+
+### Session 007
+
+- Date: 2026-05-30
+- Goal: Finish additional Feature `0001` structure requirements: current Next.js config, no Vitest, and Tailwind config decision.
+- Completed: Replaced Vitest with Jest configured through Next.js `next/jest`; removed `vitest.config.ts`; updated structure tests to require `jest.config.ts`; kept `next.config.ts` minimal with typed `NextConfig` because Next.js 16.2.6 uses Turbopack by default; documented that Tailwind CSS v4 does not need `tailwind.config.*` until custom theme/plugins/content scanning are required.
+- Verification run: `bash init.sh` attempted and failed with WSL no installed distribution. Passed: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, `pnpm verify`, and `powershell -ExecutionPolicy Bypass -File .\init.ps1`.
+- Evidence captured: `pnpm test` ran Jest and passed 1 suite / 3 tests; `next build` reported Next.js 16.2.6 with Turbopack and prerendered `/`.
+- Commits: Not committed yet in this session.
+- Files or artifacts updated: `package.json`, `pnpm-lock.yaml`, `jest.config.ts`, `tsconfig.json`, `tests/structure.test.ts`, `docs/ARCHITECTURE.md`, `feature_list.json`, `quality-document.md`, `claude-progress.md`.
+- Known risk or unresolved issue: `bash init.sh` remains blocked by missing WSL distro. `docs/RELIABILITY.md` still contains stale Electron/document-indexing concepts.
+- Next best step: Commit Feature 0001 tooling update, then realign `docs/RELIABILITY.md` with Contract Builder.

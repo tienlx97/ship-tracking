@@ -26,8 +26,11 @@
       ],
       "evidence": [
         "Created Next.js App Router project structure under src/app, src/features, src/components, src/lib/services, src/lib/api, src/types, src/styles, and tests on 2026-05-30.",
-        "Added package.json, pnpm-lock.yaml, tsconfig.json, next.config.ts, postcss.config.mjs, eslint.config.mjs, vitest.config.ts, and init.ps1.",
+        "Added package.json, pnpm-lock.yaml, tsconfig.json, next.config.ts, postcss.config.mjs, eslint.config.mjs, jest.config.ts, and init.ps1.",
         "Added tests/structure.test.ts covering required folders, required configuration files, and the shared service layer.",
+        "Replaced Vitest with Next.js Jest integration via next/jest on 2026-05-30.",
+        "Confirmed Next.js 16.2.6 production build uses Turbopack by default; next.config.ts remains minimal with typed NextConfig export.",
+        "Confirmed Tailwind CSS v4 does not require tailwind.config.* for the current setup; postcss.config.mjs plus @import \"tailwindcss\" is sufficient until custom theme/plugins/scanning are needed.",
         "Verification passed on 2026-05-30: pnpm typecheck, pnpm lint, pnpm test, pnpm build.",
         "Aggregate verification passed on 2026-05-30: pnpm verify.",
         "Windows startup verification passed on 2026-05-30: powershell -ExecutionPolicy Bypass -File .\\init.ps1."

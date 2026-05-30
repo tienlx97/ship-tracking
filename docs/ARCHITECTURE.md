@@ -13,6 +13,7 @@ This file is intentionally short. It tells agents where things live, what bounda
 - Styling: Tailwind CSS
 - UI library: HeroUI
 - Server state: TanStack React Query
+- Test runner: Jest through Next.js `next/jest`
 - Structure: Feature-based
 - Routing: Next.js App Router
 - Services: Shared server/client-safe services live under `src/lib/services`
@@ -218,9 +219,28 @@ Rules:
 * Feature-specific UI stays inside the feature.
 * Do not duplicate table, modal, button, input, or form patterns across features.
 
+Tailwind CSS uses the current v4 PostCSS setup:
+
+* `postcss.config.mjs` registers `@tailwindcss/postcss`.
+* Global CSS imports Tailwind with `@import "tailwindcss";`.
+* Do not add `tailwind.config.*` unless the app needs custom theme tokens,
+  content scanning overrides, plugins, or other Tailwind configuration that
+  cannot live in CSS.
+
 ---
 
-## 9. State Rules
+## 9. Next.js Configuration
+
+Next.js is configured in `next.config.ts` using the typed `NextConfig` export.
+Keep the config minimal and add options only when the app needs them.
+
+For Next.js 16, Turbopack is the default bundler. If Turbopack-specific options
+are needed later, place them under the top-level `turbopack` key, not under
+`experimental`.
+
+---
+
+## 10. State Rules
 
 Use the right state tool:
 
@@ -234,7 +254,7 @@ Do not add global state unless local state is insufficient.
 
 ---
 
-## 10. Verification
+## 11. Verification
 
 Before declaring work complete, run:
 
@@ -271,7 +291,7 @@ Do not mark a task complete only because code was written.
 
 ---
 
-## 11. Documentation Placement
+## 12. Documentation Placement
 
 Use progressive disclosure:
 
@@ -293,7 +313,7 @@ Rules:
 
 ---
 
-## 12. Agent Fresh Session Test
+## 13. Agent Fresh Session Test
 
 A new agent should be able to answer these using only repo files:
 

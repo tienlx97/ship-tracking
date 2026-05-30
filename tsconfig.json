@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "eslint.config.mjs",
-    "vitest.config.ts",
+    "jest.config.ts",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [

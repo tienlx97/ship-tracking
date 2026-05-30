@@ -30,7 +30,7 @@ powershell -ExecutionPolicy Bypass -File .\init.ps1
 
 | Domain | Grade | Verification | Agent Legibility | Test Stability | Key Gaps | Last Updated |
 |--------|-------|--------------|------------------|----------------|----------|--------------|
-| Project Structure | A | `pnpm verify` passed; `init.ps1` passed | High: documented in `docs/ARCHITECTURE.md`, `src/*/README.md`, and `feature_list.json` | Stable: `tests/structure.test.ts` has 3 passing tests | Bash startup still depends on WSL | 2026-05-30 |
+| Project Structure | A | `pnpm verify` passed; `init.ps1` passed | High: documented in `docs/ARCHITECTURE.md`, `src/*/README.md`, and `feature_list.json` | Stable: Jest structure test has 3 passing tests | Bash startup still depends on WSL | 2026-05-30 |
 | MVP Product Spec | B | Manual documentation review captured in `feature_list.json` | High: `docs/PRODUCT.md` defines CIF sale contract MVP and future scope | N/A: documentation-only | Needs implementation-backed tests once workflow begins | 2026-05-30 |
 | CIF Contract Data Entry | N/A | Not implemented | Product requirements documented | No tests yet | Build form, schema, required-field validation | - |
 | Payment Milestones | N/A | Not implemented | Product requirements documented | No tests yet | Validate total percentage equals 100 and calculate amounts | - |
@@ -57,6 +57,7 @@ powershell -ExecutionPolicy Bypass -File .\init.ps1
 - `pnpm test`: passed on 2026-05-30.
 - `pnpm build`: passed on 2026-05-30.
 - `pnpm verify`: passed on 2026-05-30.
+- Test tooling: Jest through Next.js `next/jest`; Vitest is not used.
 
 ## Active Quality Risks
 
@@ -81,3 +82,6 @@ powershell -ExecutionPolicy Bypass -File .\init.ps1
   DOCX export, and E2E coverage are not implemented yet.
 - Gaps closed: Quality Document now matches the current repo architecture,
   verification commands, and recorded feature evidence.
+- Changes: Replaced Vitest with Next.js Jest integration for structure tests.
+- Gaps closed: Next.js 16/Turbopack and Tailwind CSS v4 configuration decisions
+  are documented in `docs/ARCHITECTURE.md`.

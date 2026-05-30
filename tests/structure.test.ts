@@ -1,6 +1,5 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
 
 import { getHealthStatus } from "@/lib/services/health.service";
 
@@ -25,7 +24,7 @@ describe("project structure", () => {
       "tsconfig.json",
       "next.config.ts",
       "postcss.config.mjs",
-      "vitest.config.ts",
+      "jest.config.ts",
     ];
 
     expect(requiredFiles.every((file) => existsSync(join(root, file)))).toBe(true);
