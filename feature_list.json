@@ -14,6 +14,27 @@
   },
   "features": [
     {
+      "id": "0001",
+      "priority": 1,
+      "area": "structure",
+      "title": "Create project structure",
+      "user_visible_behavior": "The structure of the project is defined with necessary folders and files.",
+      "status": "passing",
+      "verification": [
+        "Verify that the project structure includes folders for components, services, and tests.",
+        "Check that the necessary configuration files (e.g., package.json, tsconfig.json) are present."
+      ],
+      "evidence": [
+        "Created Next.js App Router project structure under src/app, src/features, src/components, src/lib/services, src/lib/api, src/types, src/styles, and tests on 2026-05-30.",
+        "Added package.json, pnpm-lock.yaml, tsconfig.json, next.config.ts, postcss.config.mjs, eslint.config.mjs, vitest.config.ts, and init.ps1.",
+        "Added tests/structure.test.ts covering required folders, required configuration files, and the shared service layer.",
+        "Verification passed on 2026-05-30: pnpm typecheck, pnpm lint, pnpm test, pnpm build.",
+        "Aggregate verification passed on 2026-05-30: pnpm verify.",
+        "Windows startup verification passed on 2026-05-30: powershell -ExecutionPolicy Bypass -File .\\init.ps1."
+      ],
+      "notes": "bash init.sh remains blocked on this machine because WSL has no installed Linux distribution. docs/ARCHITECTURE.md now documents init.ps1 as the verified Windows-compatible equivalent."
+    },
+    {
       "id": "0002",
       "priority": 2,
       "area": "product",

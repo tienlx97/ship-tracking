@@ -4,9 +4,9 @@
 
 - Repository root: `ship tracking`
 - Standard startup path: `pnpm dev`
-- Standard verification path: `pnpm run test`
-- Current highest-priority unfinished feature: `0001 Create project structure`
-- Current blocker: `bash init.sh` cannot run on this machine because WSL has no installed Linux distribution.
+- Standard verification path: `pnpm test`
+- Current highest-priority unfinished feature: none; `0001 Create project structure` and `0002 Define Contract Builder MVP product spec` are passing.
+- Current blocker: `bash init.sh` cannot run on this machine because WSL has no installed Linux distribution. Use verified Windows equivalent `powershell -ExecutionPolicy Bypass -File .\init.ps1` on this machine.
 
 ## Session Log
 
@@ -33,3 +33,15 @@
 - Files or artifacts updated: `docs/PRODUCT.md`, `feature_list.json`, `claude-progress.md`.
 - Known risk or unresolved issue: Standard startup verification is blocked until WSL is installed or `init.sh` is adapted to a verified Windows-compatible path.
 - Next best step: Fix baseline startup/verification, then implement feature `0001 Create project structure` or begin the contract generation feature from the documented MVP spec.
+
+### Session 003
+
+- Date: 2026-05-30
+- Goal: Implement feature `0001 Create project structure`.
+- Completed: Scaffolded a Next.js App Router project with TypeScript, Tailwind CSS v4, HeroUI v3, TanStack React Query dependency, feature-based folders, shared components folder, shared service layer, API/type/style folders, and tests. Added `init.ps1` as a Windows-compatible startup/verification path because `bash init.sh` is blocked by missing WSL distribution on this machine.
+- Verification run: `bash init.sh` attempted and failed with WSL no installed distribution. Passed: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, `pnpm verify`, and `powershell -ExecutionPolicy Bypass -File .\init.ps1`.
+- Evidence captured: `tests/structure.test.ts` passed 3 tests verifying required folders, required configuration files, and the shared health service. `next build` completed and prerendered `/`.
+- Commits: `feat: create project structure`.
+- Files or artifacts updated: `.gitignore`, `docs/ARCHITECTURE.md`, `feature_list.json`, `claude-progress.md`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs`, `vitest.config.ts`, `init.ps1`, `src/`, `tests/`.
+- Known risk or unresolved issue: The Bash startup path still requires a WSL distro. The verified local fallback is `init.ps1`.
+- Next best step: Commit feature 0001, then begin the first contract workflow implementation feature.

@@ -15,6 +15,7 @@ This file is intentionally short. It tells agents where things live, what bounda
 - Server state: TanStack React Query
 - Structure: Feature-based
 - Routing: Next.js App Router
+- Services: Shared server/client-safe services live under `src/lib/services`
 
 Primary source of truth:
 
@@ -37,7 +38,7 @@ If a rule is not in the repo, agents must treat it as unknown.
 │   ├── app/                 # Next.js routes, layouts, route handlers
 │   ├── features/            # Business features
 │   ├── components/          # Shared UI and layout components
-│   ├── lib/                 # App infrastructure and shared logic
+│   ├── lib/                 # App infrastructure, services, shared logic
 │   ├── types/               # Global TypeScript types
 │   ├── styles/              # Global styles and theme files
 │   └── middleware.ts        # Auth/session/routing middleware
@@ -50,6 +51,8 @@ If a rule is not in the repo, agents must treat it as unknown.
 ├── tests/                   # Unit, integration, and E2E tests
 ├── public/                  # Static assets
 ├── AGENTS.md                # Agent operating guide
+├── init.sh                  # Bash startup/verification path
+├── init.ps1                 # Windows PowerShell startup/verification path
 └── package.json
 ````
 
@@ -240,6 +243,13 @@ pnpm typecheck
 pnpm lint
 pnpm test
 pnpm build
+```
+
+On Windows environments where `bash init.sh` cannot run because WSL has no
+installed Linux distribution, run the equivalent startup verification with:
+
+```powershell
+.\init.ps1
 ```
 
 For UI or flow changes, also run:
