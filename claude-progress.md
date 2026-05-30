@@ -69,3 +69,15 @@
 - Files or artifacts updated: `claude-progress.md`.
 - Known risk or unresolved issue: `bash init.sh` remains blocked by missing WSL distro. Existing unrelated working-tree changes are present in `skills-lock.json`, `.agents/skills/agent-browser/`, and `.agents/skills/vercel-react-best-practices/`.
 - Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
+
+### Session 006
+
+- Date: 2026-05-30
+- Goal: Update `evaluator-rubric.md` for the current Contract Builder repository.
+- Completed: Replaced the generic evaluator table with a Contract Builder-specific rubric covering baseline verification, architecture boundaries, feature evidence, handoff readiness, contract-specific checks, and automatic blockers.
+- Verification run: `bash init.sh` attempted and failed with WSL no installed distribution. Passed: `powershell -ExecutionPolicy Bypass -File .\init.ps1` and `pnpm verify`.
+- Evidence captured: `init.ps1` completed dependency check and `pnpm test`; `pnpm verify` passed typecheck, lint, 3 Vitest structure tests, and Next production build.
+- Commits: `docs: update evaluator rubric`.
+- Files or artifacts updated: `evaluator-rubric.md`, `claude-progress.md`.
+- Known risk or unresolved issue: `docs/RELIABILITY.md` still contains stale Electron/document-indexing concepts. Existing unrelated working-tree changes are present in `skills-lock.json`, `.agents/skills/agent-browser/`, and `.agents/skills/vercel-react-best-practices/`.
+- Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
