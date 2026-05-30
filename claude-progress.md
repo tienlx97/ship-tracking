@@ -45,3 +45,15 @@
 - Files or artifacts updated: `.gitignore`, `docs/ARCHITECTURE.md`, `feature_list.json`, `claude-progress.md`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs`, `vitest.config.ts`, `init.ps1`, `src/`, `tests/`.
 - Known risk or unresolved issue: The Bash startup path still requires a WSL distro. The verified local fallback is `init.ps1`.
 - Next best step: Commit feature 0001, then begin the first contract workflow implementation feature.
+
+### Session 004
+
+- Date: 2026-05-30
+- Goal: Update `quality-document.md` to match the current Contract Builder repo state.
+- Completed: Replaced stale Electron/document-indexing quality rows with Contract Builder product domains and Next.js architectural layers. Added current verification evidence, active quality risks, and change history.
+- Verification run: `bash init.sh` attempted and failed with WSL no installed distribution. Passed: `powershell -ExecutionPolicy Bypass -File .\init.ps1` and `pnpm verify`.
+- Evidence captured: `pnpm verify` passed typecheck, lint, 3 Vitest structure tests, and Next production build.
+- Commits: `docs: update quality snapshot`.
+- Files or artifacts updated: `quality-document.md`, `claude-progress.md`.
+- Known risk or unresolved issue: `docs/RELIABILITY.md` still contains stale Electron/document-indexing concepts and should be realigned before reliability implementation.
+- Next best step: Realign `docs/RELIABILITY.md` with Contract Builder, then begin the first contract workflow implementation feature.
