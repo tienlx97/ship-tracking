@@ -1,10 +1,17 @@
 {
   "version": 1,
   "skills": {
-    "react-spectrum-s2": {
-      "source": "react-spectrum.adobe.com",
-      "sourceType": "well-known",
-      "computedHash": "c87599bdeb0adf73a054d0ba78272fc433365f2e20211ce22ea227d2fef28f6d"
+    "heroui-react": {
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "skillPath": "skills/heroui-react/SKILL.md",
+      "computedHash": "f4a764d21a39ccc5b2076a869cf083bbfdb983e81f9deda8d75fef42c939a993"
+    },
+    "tailwindcss-advanced-layouts": {
+      "source": "josiahsiegel/claude-plugin-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/tailwindcss-master/skills/tailwindcss-advanced-layouts/SKILL.md",
+      "computedHash": "5c0611954232e4669546a52ad00ee30e1e636200be5f55b08be3c706384a9610"
     }
   }
 }

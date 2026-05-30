@@ -1,61 +1,72 @@
 # AGENTS.md
 
-This repository is optimized for long-running coding-agent work. Keep this file
-short. Use it as the routing layer into the system-of-record docs, not as a
-giant instruction dump.
+This repository is designed for long-running coding-agent work. The goal is not
+to maximize raw code output. The goal is to leave the repo in a state where the
+next session can continue without guessing.
 
-## Startup Workflow
+## Startup Rules
 
-Before changing code:
+Before writing any code, complete these steps in order:
 
-1. Confirm the repo root with `pwd`.
-2. Read `ARCHITECTURE.md` for the current system map and hard dependency rules.
-3. Read `docs/QUALITY_SCORE.md` to see which domains or layers are weakest.
-4. Read `docs/PLANS.md`, then open the active plan you are working from.
-5. Read the relevant product spec in `docs/product-specs/`.
-6. Run the standard bootstrap and verification path for this repo.
-7. If baseline verification is failing, repair the baseline before adding scope.
+1. **Read this file completely.** It defines the boundaries and conventions for this project.
+2. **Read `claude-progress.md`** for the latest verified state and next step.
+3. **Read `docs/ARCHITECTURE.md`** to understand the full structure and data flow.
+4. **Read `docs/PRODUCT.md`** to understand the complete feature requirements.
+5. **Read `docs/RELIABILITY.md`** to understand logging, observability, and clean state requirements.
+6. **Read `feature_list.json`** to see the current state of all features.
+7. **Review** recent commits with `git log --oneline -5`.
+8. **Run `bash init.sh`** to verify the project builds and initializes cleanly.
+9. **Run the required smoke or end-to-end verification** before starting new work.
 
-## Routing Map
+If baseline verification is already failing, fix that first. Do not stack new
+feature work on top of a broken starting state.
 
-- `ARCHITECTURE.md`: domain map, layer model, dependency rules
-- `docs/design-docs/index.md`: design decisions and core beliefs
-- `docs/product-specs/index.md`: current product behaviors and acceptance targets
-- `docs/PLANS.md`: plan lifecycle and execution-plan policy
-- `docs/QUALITY_SCORE.md`: product-domain and layer health
-- `docs/RELIABILITY.md`: runtime signals, benchmarks, and restart expectations
-- `docs/SECURITY.md`: secrets, sandbox, data, and external-action rules
-- `docs/FRONTEND.md`: UI constraints, design system rules, accessibility checks
+## Working Rules
 
-## Working Contract
+- Work on one feature at a time.
+- Do not mark a feature complete just because code was added.
+- Keep changes within the selected feature scope unless a blocker forces a
+  narrow supporting fix.
+- Do not silently change verification rules during implementation.
+- Prefer durable repo artifacts over chat summaries.
 
-- Work from one bounded plan or feature slice at a time.
-- Do not mark work done from code inspection alone; runnable evidence is
-  required.
-- If you change behavior, update the matching product, plan, or reliability
-  docs in the same session.
-- If you see repeated review feedback, promote it into a mechanical rule, check,
-  or linter instead of re-explaining it in chat.
-- Keep generated material in `docs/generated/` and source references in
-  `docs/references/`.
-- Prefer adding small, current docs over growing this file.
+## Docs Hierarchy
+
+The `docs/` directory is organized for agent readability:
+
+```
+docs/
+  ARCHITECTURE.md   -- project structure, data flow, full pipeline
+  PRODUCT.md        -- Feature requirements and user-facing behavior
+  RELIABILITY.md    -- Logging, observability, clean state, benchmarking
+```
+
+When adding new features, update the relevant doc before writing code.
+
+## Required Artifacts
+
+- `feature_list.json`: source of truth for feature state
+- `claude-progress.md`: session log and current verified status
+- `init.sh`: standard startup and verification path
+- `session-handoff.md`: optional compact handoff for larger sessions
 
 ## Definition Of Done
 
-A change is done only when all of the following are true:
+A feature is done only when all of the following are true:
 
-- target behavior is implemented
-- required verification actually ran
-- evidence is linked from the relevant plan or quality document
-- affected docs remain current
-- the repository can restart cleanly from the standard startup path
+1. The target behavior is implemented
+2. The required verification actually ran
+3. Evidence is recorded in `feature_list.json` or `claude-progress.md`
+4. The repository remains restartable from the standard startup path
+5. docs/ARCHITECTURE.md and/or docs/PRODUCT.md are updated.
 
 ## End Of Session
 
 Before ending a session:
 
-1. Update the active execution plan.
-2. Update `docs/QUALITY_SCORE.md` if any domain or layer meaningfully changed.
-3. Record new debt in `docs/exec-plans/tech-debt-tracker.md` if you deferred it.
-4. Move finished plans to `docs/exec-plans/completed/` when appropriate.
-5. Leave the repo in a restartable state with a clear next action.
+1. Update `claude-progress.md`.
+2. Update `feature_list.json`.
+3. Record any unresolved risk or blocker.
+4. Commit with a descriptive message once the work is in a safe state.
+5. Leave the repo clean enough for the next session to run `./init.sh`
+   immediately.

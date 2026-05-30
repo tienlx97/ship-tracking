@@ -2,7 +2,7 @@
 
 ## Current Verified State
 
-- Repository root: `d:\ship tracking`
+- Repository root: `ship tracking`
 - Standard startup path: `pnpm dev`
 - Standard verification path: `pnpm run test`
 - Current highest-priority unfinished feature: `0001 Create project structure`

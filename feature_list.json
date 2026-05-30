@@ -14,20 +14,6 @@
   },
   "features": [
     {
-      "id": "0001",
-      "priority": 1,
-      "area": "structure",
-      "title": "Create project structure",
-      "user_visible_behavior": "The structure of the project is defined with necessary folders and files.",
-      "status": "not_started",
-      "verification": [
-       "Verify that the project structure includes folders for components, services, and tests.",
-        "Check that the necessary configuration files (e.g., package.json, tsconfig.json) are present."
-      ],
-      "evidence": [],
-      "notes": ""
-    },
-    {
       "id": "0002",
       "priority": 2,
       "area": "product",
